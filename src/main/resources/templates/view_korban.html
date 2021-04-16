@@ -43,7 +43,7 @@
       <td th:text="${korban.alamat}"></td>
       <td th:text="${korban.kejadian}"></td>
       <td th:text="${korban.keterangan}"></td>
-      <td><img class="img-responsive" width="100" height="100" th:src="@{${korban.gambar}}" /> </td>
+      <td><img class="img-responsive" width="100" height="100" th:src="@{${korban.gambar} ?: 'https://www.tapanulitoday.id/uploads/images/image_750x_5f9c3c91783c5.jpg'}" /> </td>
       <td th:text="${korban.status} ?: 'Pending' "></td>
       <td>
       	<div th:switch="${korban.status}">
