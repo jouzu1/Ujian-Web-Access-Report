@@ -60,13 +60,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             */
     	
     	http.authorizeRequests()
-    	.antMatchers("/korban/view/**").access("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
+    	.antMatchers("/korban/**").access("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
     	.anyRequest().permitAll()
     	.and()
     	.formLogin().loginPage("/login")
     	.defaultSuccessUrl("/korban/view/").permitAll()
     	.and()
-   
     	.logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login");
 
     	

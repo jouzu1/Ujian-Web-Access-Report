@@ -1,10 +1,12 @@
 package com.ujian.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+//import com.juaracoding.jpa.entity.Product;
 import com.ujian.entity.Korban;
 import com.ujian.repository.KorbanRepository;
 
@@ -35,7 +37,8 @@ public class ModelKorban implements KorbanInterface{
 	@Override
 	public Korban getKorbanById(String id) {
 		// TODO Auto-generated method stub
-		return null;
+//		return this.korbanRepo.findByIdKorban(Long.parseLong(id));
+		return korbanRepo.findByIdUser(Long.parseLong(id));
 	}
 
 	@Override
@@ -43,4 +46,11 @@ public class ModelKorban implements KorbanInterface{
 		// TODO Auto-generated method stub
 		
 	}
+	
+	public void save(Korban updateStatus) {
+        // TODO Auto-generated method stub
+		this.korbanRepo.save(updateStatus);
+//        this.laporanRepo.save(updateStatus);
+    }
+	
 }
