@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="mahasiswa" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="af77f240-5423-471f-af6b-d216ba9d5c67">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
+	<queryString language="SQL">
+		<![CDATA[select * from mahasiswa]]>
+	</queryString>
+	<field name="nim" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nim"/>
+		<property name="com.jaspersoft.studio.field.label" value="nim"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="mahasiswa"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nama_mahasiswa" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nama_mahasiswa"/>
+		<property name="com.jaspersoft.studio.field.label" value="nama_mahasiswa"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="mahasiswa"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="jenis_kelamin" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="jenis_kelamin"/>
+		<property name="com.jaspersoft.studio.field.label" value="jenis_kelamin"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="mahasiswa"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="80" y="15" width="100" height="30" uuid="150bec07-53bd-44d3-947a-d09efa871275">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="62146fa1-948a-46a2-8ad3-bd1909952452"/>
+				</reportElement>
+				<text><![CDATA[nim]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="230" y="15" width="100" height="30" uuid="bbe4996a-ae24-4bcd-83d5-acb7250e3ca1">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="67df56a2-e72b-427b-b423-38e4fd61f861"/>
+				</reportElement>
+				<text><![CDATA[nama_mahasiswa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="380" y="15" width="100" height="30" uuid="70977ffb-5c03-4c19-a42f-f3834616e875">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="513abf49-066f-4463-bc86-02fbc6eb78fa"/>
+				</reportElement>
+				<text><![CDATA[jenis_kelamin]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="80" y="47" width="100" height="30" uuid="de435f69-b678-4854-80fa-17636b8160b0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="62146fa1-948a-46a2-8ad3-bd1909952452"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{nim}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="230" y="44" width="100" height="30" uuid="e735ad33-3a9e-47fd-8ada-16d265b64380">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="67df56a2-e72b-427b-b423-38e4fd61f861"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{nama_mahasiswa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="380" y="44" width="100" height="30" uuid="8bc87e59-1ad8-4436-8ef8-5987637a12d0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="513abf49-066f-4463-bc86-02fbc6eb78fa"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{jenis_kelamin}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,12 +1,16 @@
 package com.ujian.controller;
 
+import java.io.File;
 import java.io.IOException;
-
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.ResourceUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -17,6 +21,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.ujian.utility.FileUtility;
+
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperExportManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
 import com.ujian.entity.Korban;
 import com.ujian.service.ModelKorban;
@@ -101,38 +112,28 @@ public class KorbanPage {
 
         return "redirect:/korban/Adminview";
     }
-//	@PostMapping("/korban/sendApprove")
-//	  public String addApprove(@ModelAttribute Korban korban, Model model) {
-//		
-//		// buat penampung data mahasiswa di halaman htmlnya
-//		korban.setStatus("Approve");	
-//		korban.setNama(korban.getNama());
-//		this.modelKorban.addKorban(korban);
-////		model.addAttribute("listLaporan", modelKorban.getKorban());
-//		
-//		
-//		return "redirect:/korban/Adminview";
-//	}
-//	
-//	@PostMapping("/korban/sendReject")
-//	  public String addReject(@ModelAttribute Korban korban, Model model) {
-//		
-//		// buat penampung data mahasiswa di halaman htmlnya
-//		korban.setStatus("Reject");		
-//		this.modelKorban.addKorban(korban);
-//		model.addAttribute("listLaporan", modelKorban.getKorban());
-//		
-//		
-//		return "redirect:/korban/Adminview";
-//	}
 	
-//	@GetMapping("/korban/update/{id}")
-//	public String viewUpdateMahasiswa(@PathVariable String id, Model model) {
-//		
-//		Korban mahasiswa = modelKorban.getKorbanById(id);
-//		// buat penampung data mahasiswa di halaman htmlnya
-//		model.addAttribute("mahasiswa",mahasiswa);
-//		
-//		return "redirect:/korban/Adminview";
-//	}
+	@GetMapping("/korban/report/pdf")
+	public void exportPDF() {
+		try {
+		File file = ResourceUtils.getFile("classpath:Report.jrxml");
+		JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+		
+		List<Korban> lstKorban = modelKorban.getKorban();
+        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(lstKorban);
+        
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("createdBy","Jouzu");
+        
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
+        String path = "D:\\Report.pdf";
+        JasperExportManager.exportReportToPdfFile(jasperPrint,path);
+        
+       
+		
+		}catch (Exception e) {
+			// TODO: handle exception
+			System.out.println(e.getMessage());
+		}		
+	}
 }
