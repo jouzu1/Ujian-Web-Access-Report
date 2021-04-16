@@ -114,7 +114,7 @@ public class KorbanPage {
     }
 	
 	@GetMapping("/korban/report/pdf")
-	public void exportPDF() {
+	public String exportPDF() {
 		try {
 		File file = ResourceUtils.getFile("classpath:Report.jrxml");
 		JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
@@ -134,6 +134,7 @@ public class KorbanPage {
 		}catch (Exception e) {
 			// TODO: handle exception
 			System.out.println(e.getMessage());
-		}		
+		}	
+		return "redirect:/korban/Adminview";
 	}
 }

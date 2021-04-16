@@ -1,5 +1,6 @@
 package com.ujian.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,6 +28,7 @@ public class Korban {
 	private String alamat;
 	private String kejadian;
 	private String keterangan;
+	@Column(nullable = true)
 	private String gambar;
 	private String status;
 }
