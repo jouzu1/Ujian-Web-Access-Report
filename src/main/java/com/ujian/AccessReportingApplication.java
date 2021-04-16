@@ -25,6 +25,8 @@ public class AccessReportingApplication implements CommandLineRunner{
 //		korban1.setAlamat("Jalan jalan");
 //		korban1.setKeterangan("Pelaku kabur");
 //		this.korbanInterface.save(korban1);
+		
+		
 	}
 	
 	

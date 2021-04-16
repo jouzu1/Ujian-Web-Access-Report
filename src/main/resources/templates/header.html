@@ -8,10 +8,9 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a>Home</a>
         <a th:attr="class=${active == 1 ? 'nav-link active' : 'nav-link'}"  th:href="@{'/korban/view'}">Dashboard </a>
         <a th:attr="class=${active ==2 ? 'nav-link active' : 'nav-link'}"  th:href="@{'/korban/add'}">Tambah Laporan</a>
-        <a>Logout</a>
+        <a th:href="@{'/logout'}" tabindex="-1" aria-disabled="true">Logout</a>
       </div>
     </div>
   </div>
