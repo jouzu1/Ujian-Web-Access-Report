@@ -47,7 +47,7 @@ public class KorbanPage {
 	@GetMapping("/korban/Adminview")
 	public String homeView(Model model) {
 		model.addAttribute("listLaporan", modelKorban.getKorban());
-		
+		model.addAttribute("fieldDisabled", "Selesai");
 		model.addAttribute("active", 3);
 		return "view_korban";
 	}
@@ -89,7 +89,7 @@ public class KorbanPage {
         Korban updateStatus = modelKorban.getKorbanById(id);
         updateStatus.setStatus("Approve");
         modelKorban.save(updateStatus);
-
+        
         return "redirect:/korban/Adminview";
     }
 	@GetMapping("/korban/reject/{id}")

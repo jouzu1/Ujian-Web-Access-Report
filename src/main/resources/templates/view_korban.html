@@ -46,10 +46,18 @@
       <td><img class="img-responsive" width="100" height="100" th:src="@{${korban.gambar}}" /> </td>
       <td th:text="${korban.status} ?: 'Pending' "></td>
       <td>
-      
-        <a th:href="@{/korban/approve/{id}(id=${korban.idUser})}" class="btn btn-primary btn-sm" tabindex="-1" role="button" ><i class="fa fa-folder" ></i> Approve </a>
-        <a th:href="@{/korban/reject/{id}(id=${korban.idUser})}" class="btn btn-primary btn-sm" tabindex="-1" role="button" ><i class="fa fa-folder" ></i> Reject </a>
-     
+      	<div th:switch="${korban.status}">
+      		<div th:case = 'null'>
+      			<a th:href="@{/korban/approve/{id}(id=${korban.idUser})}"  class="btn btn-primary btn-sm" tabindex="-1" role="button" ><i class="fa fa-folder" ></i> Approve </a>
+        		<a th:href="@{/korban/reject/{id}(id=${korban.idUser})}"  class="btn btn-primary btn-sm" tabindex="-1" role="button" ><i class="fa fa-folder" ></i> Reject </a>
+      		</div>
+        	<div th:case = 'Approve'>
+        		<p>Selesai</p>
+        	</div>
+        	<div th:case = 'Reject'>
+        		<p>Selesai</p>
+        	</div>
+     	</div>
       </td>
     </tr>
     
