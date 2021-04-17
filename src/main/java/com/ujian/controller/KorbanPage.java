@@ -35,20 +35,21 @@ import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
 @Controller
 public class KorbanPage {
+	
 	@Autowired
 	ModelKorban modelKorban;
 	
 	@GetMapping("/login")
 	public String loginPage(Model model) {
 		
-
+		
 		return "login";
 		
 	}
 
 	@GetMapping("/korban/view")
 	public String home(Model model) {
-		model.addAttribute("totalLaporan", modelKorban.getKorban().size());
+		model.addAttribute("totalLaporan", modelKorban.getKorban());
 		model.addAttribute("listLaporan", modelKorban.getKorban());
 //		model.addAttribute("ditanggapi", modelKorban.cariApprove());
 //		model.addAttribute("proses", modelKorban.cariProses());
@@ -108,6 +109,7 @@ public class KorbanPage {
         
         return "redirect:/korban/Adminview";
     }
+	
 	@GetMapping("/korban/reject/{id}")
     public String rejectLaporan(@PathVariable String id, Model model) {
 

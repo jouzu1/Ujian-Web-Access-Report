@@ -50,7 +50,6 @@ public class ModelKorban implements KorbanInterface{
 	public void save(Korban updateStatus) {
         // TODO Auto-generated method stub
 		this.korbanRepo.save(updateStatus);
-//        this.laporanRepo.save(updateStatus);
     }
 
 	@Override
