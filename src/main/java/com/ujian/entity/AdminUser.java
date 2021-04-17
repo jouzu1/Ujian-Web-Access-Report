@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 
 @Entity
-@Table(name="admin_user")
+@Table(name="admin")
 public class AdminUser {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

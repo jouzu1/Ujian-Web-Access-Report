@@ -9,6 +9,7 @@ import java.util.Map;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.ResourceUtils;
@@ -81,6 +82,7 @@ public class KorbanPage {
 			FileUtility.saveFile(uploadDir, fileName, file);
 
 			korban.setGambar("/" + uploadDir + fileName);
+			
 		
 			this.modelKorban.addKorban(korban);
 					

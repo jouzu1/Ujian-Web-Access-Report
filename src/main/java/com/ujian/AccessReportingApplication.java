@@ -5,13 +5,18 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.ujian.entity.AdminUser;
 import com.ujian.entity.Korban;
+import com.ujian.repository.AdminUserRepository;
 import com.ujian.repository.KorbanRepository;
 
 @SpringBootApplication
 public class AccessReportingApplication implements CommandLineRunner{
 	@Autowired
 	KorbanRepository korbanInterface;
+	
+	@Autowired
+	AdminUserRepository admRepo;
 
 	public static void main(String[] args) {
 		SpringApplication.run(AccessReportingApplication.class, args);
@@ -20,12 +25,11 @@ public class AccessReportingApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
-//		Korban korban1 = new Korban();
-//		korban1.setNama("Jouzu");
-//		korban1.setAlamat("Jalan jalan");
-//		korban1.setKeterangan("Pelaku kabur");
-//		this.korbanInterface.save(korban1);
-		
+//		AdminUser adm = new AdminUser();
+//		adm.setUsername("jo");
+//		adm.setPassword("123");
+//		adm.setRole("user");
+//		this.admRepo.save(adm);
 		
 	}
 	
