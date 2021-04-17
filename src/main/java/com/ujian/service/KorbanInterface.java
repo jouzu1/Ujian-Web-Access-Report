@@ -12,4 +12,7 @@ public interface KorbanInterface {
 	public Korban addKorban(Korban korban);
 	public Korban getKorbanById(String id);
 	public void deleteKorban(String id);
+	
+	public Korban cariApprove();
+	public Korban cariProses();
 }

@@ -18,16 +18,16 @@
 			</div>
 		</div>
 		<div class="card" style="width: 18rem;">
-			<div class="card-body" th:each="korban : ${listKorban}">
+			<div class="card-body" th:each="korban : ${ditanggapi}">
 				<h5 class="card-title">Jumlah Ditanggapi</h5>
-				<p class="card-text" th:text="${korban}">Some quick example text to build on the
+				<p class="card-text" th:text="${#lists.size(korban)}">Some quick example text to build on the
 					card title and make up the bulk of the card's content.</p>
 			</div>
 		</div>
 		<div class="card" style="width: 18rem;">
-			<div class="card-body" th:each="korban : ${listKorban}">
+			<div class="card-body" th:each="korban : ${proses}">
 				<h5 class="card-title">Jumlah Laporan Dalam Proses</h5>
-				<p class="card-text" th:text="${korban}">Some quick example text to build on the
+				<p class="card-text" th:text="${#lists.size(korban)}">Some quick example text to build on the
 					card title and make up the bulk of the card's content.</p>
 			</div>
 		</div>

@@ -50,8 +50,8 @@ public class KorbanPage {
 	public String home(Model model) {
 		model.addAttribute("totalLaporan", modelKorban.getKorban().size());
 		model.addAttribute("listLaporan", modelKorban.getKorban());
-		model.addAttribute("ditanggapi", modelKorban.getKorban().size());
-		model.addAttribute("proses", modelKorban.getKorban().size());
+		model.addAttribute("ditanggapi", modelKorban.cariApprove());
+		model.addAttribute("proses", modelKorban.cariProses());
 		model.addAttribute("active", 1);
 		return "dashboard";
 	}

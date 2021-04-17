@@ -52,5 +52,16 @@ public class ModelKorban implements KorbanInterface{
 		this.korbanRepo.save(updateStatus);
 //        this.laporanRepo.save(updateStatus);
     }
-	
+
+	@Override
+	public Korban cariApprove() {
+		// TODO Auto-generated method stub
+		return this.korbanRepo.findApprove();
+	}
+
+	@Override
+	public Korban cariProses() {
+		// TODO Auto-generated method stub
+		return this.korbanRepo.findProccess();
+	}	
 }
