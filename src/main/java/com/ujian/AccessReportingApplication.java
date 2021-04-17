@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.ujian.entity.AdminUser;
 import com.ujian.entity.Korban;
@@ -25,11 +26,16 @@ public class AccessReportingApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
-//		AdminUser adm = new AdminUser();
-//		adm.setUsername("jo");
-//		adm.setPassword("123");
-//		adm.setRole("user");
-//		this.admRepo.save(adm);
+		AdminUser adm = new AdminUser();
+		adm.setUsername("jo");
+		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		String plainPassword = "123";
+		String encodedPassword = passwordEncoder.encode(plainPassword);
+		adm.setPassword(encodedPassword);
+		
+		adm.setRole("user");
+		this.admRepo.save(adm);
+		
 		
 	}
 	

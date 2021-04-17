@@ -49,7 +49,7 @@ public class KorbanPage {
 
 	@GetMapping("/korban/view")
 	public String home(Model model) {
-		model.addAttribute("totalLaporan", modelKorban.getKorban());
+		model.addAttribute("totalLaporan", modelKorban.getKorban().size());
 		model.addAttribute("listLaporan", modelKorban.getKorban());
 //		model.addAttribute("ditanggapi", modelKorban.cariApprove());
 //		model.addAttribute("proses", modelKorban.cariProses());
