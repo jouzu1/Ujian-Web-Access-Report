@@ -20,8 +20,7 @@ import lombok.NoArgsConstructor;
 @Table(name="korban")
 public class Korban {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private long idUser;
 	private String nama;
 	private String alamat;

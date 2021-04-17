@@ -13,9 +13,15 @@ public interface KorbanRepository extends CrudRepository<Korban, Long>{
 	public Korban findByIdUser (Long id);
 	
 //	@Query(value="SELECT * FROM `korban` WHERE status = 'Approve'")
-	@Query(value = "SELECT * FROM korban WHERE status = 'Approve';",nativeQuery = true)
+//	@Query(value = "SELECT * FROM korban WHERE status = 'Approve';",nativeQuery = true)
+//	public Korban findApprove();
+//	
+//	@Query(value = "SELECT * FROM korban WHERE status IS NULL;",nativeQuery = true)
+//	public Korban findProccess();
+	
+	@Query(value = "SELECT id_user FROM korban WHERE status = 'Approve'",nativeQuery = true)
 	public Korban findApprove();
 	
-	@Query(value = "SELECT * FROM korban WHERE status IS NULL;",nativeQuery = true)
+	@Query(value = "SELECT id_user FROM korban WHERE status IS NULL",nativeQuery = true)
 	public Korban findProccess();
 }

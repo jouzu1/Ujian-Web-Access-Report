@@ -63,5 +63,5 @@ public class ModelKorban implements KorbanInterface{
 	public Korban cariProses() {
 		// TODO Auto-generated method stub
 		return this.korbanRepo.findProccess();
-	}	
+	}
 }
