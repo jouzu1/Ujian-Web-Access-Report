@@ -6,8 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
-
+import javax.validation.constraints.NotEmpty;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -28,7 +27,8 @@ public class Korban {
 	private String alamat;
 	private String kejadian;
 	private String keterangan;
-	@Column(nullable = true)
+	
+
 	private String gambar;
 	private String status;
 }

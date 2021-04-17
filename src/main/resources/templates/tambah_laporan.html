@@ -41,44 +41,9 @@
 							placeholder="Keterangan Lengkap" th:field="*{keterangan}">
 					</div>
 					<div class="mb-3">
-						<label for="formFile" class="form-label">Gambar</label> <input
-							class="form-control" th:name="file" type="file" id="formFile"
-							th:value="*{gambar}">
+						<label for="formFile" class="form-label">Gambar</label> <input class="form-control" th:name="file" type="file" id="formFile" th:value="*{gambar}">
 					</div>
 					<input type="hidden" th:field="*{idUser}">
-			</div>
-			<div sec:authorize="hasRole('ROLE_ADMIN')">
-				<form action="#" th:action="@{/soal/view}" th:object="${soal}"
-					method="post">
-
-					<div class="mb-3">
-						<label for="nama" class="form-label">Nama Soal</label> <input
-							type="text" class="form-control" id="nama"
-							placeholder="Nama Soal" th:field="*{namaSoal}">
-					</div>
-
-					<div class="mb-3">
-						<label for="username" class="form-label">Status</label> <input
-							type="text" class="form-control" id="username"
-							placeholder="Username" th:field="*{status}">
-					</div>
-
-					<div class="mb-3">
-
-						<select id="multiSelectElementsSelected"
-							name="multiSelectElementsSelected" multiple="multiple"
-							th:field="*{lstPertanyaan}">
-
-							<option th:each="pertanyaan,row : ${listPertanyaan}"
-								th:value="${pertanyaan.id}" th:text="${pertanyaan.pertanyaan1}"></option>
-						</select>
-						<div class="mb-3">
-							<input type="hidden" th:field="*{id}">
-
-							<p>
-								<input type="submit" value="Submit" /> <input type="reset"
-									value="Reset" />
-				</form>
 			</div>
 			<p>
 				<input type="submit" value="Submit" /> <input type="reset"

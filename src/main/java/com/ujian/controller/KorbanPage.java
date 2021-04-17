@@ -6,20 +6,23 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.ResourceUtils;
 import org.springframework.util.StringUtils;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.ujian.entity.Korban;
+import com.ujian.service.ModelKorban;
 import com.ujian.utility.FileUtility;
 
 import net.sf.jasperreports.engine.JasperCompileManager;
@@ -28,9 +31,6 @@ import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
-
-import com.ujian.entity.Korban;
-import com.ujian.service.ModelKorban;
 
 @Controller
 public class KorbanPage {
@@ -71,8 +71,8 @@ public class KorbanPage {
 	}
 
 	@PostMapping("/korban/vieew")
-	public String addKorban(@RequestParam(value = "file") MultipartFile file, @ModelAttribute Korban korban,
-			Model model) throws IOException {
+	public String addKorban(@RequestParam(value = "file") MultipartFile file, @ModelAttribute Korban korban
+			,Model model) throws IOException {
 		{
 			String fileName = StringUtils.cleanPath(file.getOriginalFilename());
 
@@ -88,6 +88,9 @@ public class KorbanPage {
 			model.addAttribute("totalLaporan", modelKorban.getKorban().size());
 			model.addAttribute("ditanggapi", modelKorban.getKorban().size());
 			model.addAttribute("proses", modelKorban.getKorban().size());
+			
+			
+			
 			return "redirect:/korban/view";
 		}
 	}
