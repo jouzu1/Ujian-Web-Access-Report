@@ -26,15 +26,15 @@ public class AccessReportingApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
-		AdminUser adm = new AdminUser();
-		adm.setUsername("jo");
-		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-		String plainPassword = "123";
-		String encodedPassword = passwordEncoder.encode(plainPassword);
-		adm.setPassword(encodedPassword);
-		
-		adm.setRole("user");
-		this.admRepo.save(adm);
+//		AdminUser adm = new AdminUser();
+//		adm.setUsername("jo");
+//		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+//		String plainPassword = "123";
+//		String encodedPassword = passwordEncoder.encode(plainPassword);
+//		adm.setPassword(encodedPassword);
+//		
+//		adm.setRole("user");
+//		this.admRepo.save(adm);
 		
 		
 	}
